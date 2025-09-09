@@ -3,7 +3,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import os
-from huggingface_hub import hf_hub_downloadfrom huggingface_hub import hf_hub_download
+from huggingface_hub import hf_hub_download
 
 # --- การตั้งค่าหน้าเว็บ ---
 st.set_page_config(
