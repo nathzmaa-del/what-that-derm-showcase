@@ -3,7 +3,6 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import os
-from huggingface_hub import hf_hub_download
 
 # --- การตั้งค่าหน้าเว็บ ---
 st.set_page_config(
@@ -28,11 +27,12 @@ CLASS_NAMES = {
 
 @st.cache_resource
 def load_model():
+    model_path = 'best_resnet_model.keras'
     try:
-        model_path = hf_hub_download(
-            repo_id="Meeew/what-that-derm-app",   # 🔹 แก้เป็น model repo ของคุณ
-            filename="best_resnet_model.keras"
-        )
+        if not os.path.exists(model_path):
+            st.error(f"ไม่พบไฟล์โมเดลที่ '{model_path}'. โปรดตรวจสอบว่าคุณได้อัปโหลดไฟล์ขึ้น GitHub และใช้ Git LFS อย่างถูกต้อง")
+            return None
+        
         model = tf.keras.models.load_model(model_path)
         return model
     except Exception as e:
