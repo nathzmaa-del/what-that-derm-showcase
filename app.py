@@ -3,6 +3,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import os
+from huggingface_hub import hf_hub_downloadfrom huggingface_hub import hf_hub_download
 
 # --- การตั้งค่าหน้าเว็บ ---
 st.set_page_config(
@@ -27,20 +28,16 @@ CLASS_NAMES = {
 @st.cache_resource
 def load_model():
     """
-    โหลดโมเดล Keras จากไฟล์ที่อยู่ใน Repository เดียวกัน
-    นี่คือวิธีที่เสถียรที่สุดสำหรับ Hugging Face Spaces
+    ดาวน์โหลดโมเดลจาก Hugging Face Hub โดยตรง
+    นี่คือวิธีที่เสถียรและแนะนำที่สุด
     """
-    model_path = 'best_resnet_model.keras'
     try:
-        # ตรวจสอบว่าไฟล์มีอยู่จริงในตำแหน่งที่คาดหวัง
-        if not os.path.exists(model_path):
-            st.error(f"ไม่พบไฟล์โมเดลที่ '{model_path}'. โปรดตรวจสอบว่าคุณได้อัปโหลดไฟล์ขึ้น GitHub และใช้ Git LFS อย่างถูกต้อง")
-            return None
-        
+        # แก้ไข repo_id ให้เป็น "YourUsername/YourModelName" ของคุณ
+        model_path = hf_hub_download(repo_id="nathzmaa-del/what-that-derm-model", filename="best_resnet_model.keras")
         model = tf.keras.models.load_model(model_path)
         return model
     except Exception as e:
-        st.error(f"เกิดข้อผิดพลาดในการโหลดโมเดล: {e}")
+        st.error(f"เกิดข้อผิดพลาดในการดาวน์โหลดหรือโหลดโมเดล: {e}")
         return None
 
 def preprocess_image(image):
