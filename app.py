@@ -30,7 +30,7 @@ CLASS_NAMES = {
 def load_model():
     try:
         model_path = hf_hub_download(
-            repo_id="Meeew/what-that-derm-app",   # 🔹 แก้เป็น model repo ของคุณ
+            repo_id="Meeew/what-that-derm-showcase",   # 🔹 แก้เป็น model repo ของคุณ
             filename="best_resnet_model.keras"
         )
         model = tf.keras.models.load_model(model_path)
