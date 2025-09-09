@@ -8,7 +8,7 @@ app_file: app.py
 pinned: false
 ---
 🔬 What's That Derm? - AI Skin Lesion Classifier
-[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Meeew/what-that-derm)
+[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Meeew/what-that-derm-showcase)
 
 โปรแกรมช่วยจำแนกประเภทของรอยโรคบนผิวหนังเบื้องต้นด้วย AI สำหรับการศึกษา สร้างขึ้นเพื่อเป็นส่วนหนึ่งของ Portfolio สำหรับยื่นสมัครเข้าศึกษาต่อในคณะแพทยศาสตร์
 
