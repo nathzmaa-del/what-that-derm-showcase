@@ -21,11 +21,6 @@ CLASS_NAMES = {
     'mel': 'Melanoma (มะเร็งผิวหนังชนิดเมลาโนมา)',
     'nv': 'Melanocytic Nevi (ไฝ)',
     'vasc': 'Vascular Lesions (รอยโรคของหลอดเลือด)'
-}import streamlit as st
-import tensorflow as tf
-from PIL import Image
-import numpy as np
-import os
 
 # --- การตั้งค่าหน้าเว็บ ---
 st.set_page_config(
