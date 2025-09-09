@@ -32,12 +32,7 @@ def load_model():
     นี่คือวิธีที่เสถียรและแนะนำที่สุด
     """
     try:
-        # แก้ไข repo_id ให้เป็น "YourUsername/YourModelName" ของคุณ
-        model_path = hf_hub_download(
-            repo_id="Meeew/what-that-derm-model", 
-            filename="best_resnet_model.keras"
-        )
-        model = tf.keras.models.load_model(model_path)
+        model = tf.keras.models.load_model('best_resnet_model.keras')
         return model
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาดในการดาวน์โหลดหรือโหลดโมเดล: {e}")
